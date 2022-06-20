@@ -1,4 +1,4 @@
-import type { NextPage } from 'next'
+
 import Head from 'next/head'
 import Image from 'next/image'
 import Header from "../components/Header"
@@ -27,7 +27,7 @@ export async function getStaticProps() {
   }
 }
 
-const Home: NextPage = (props) => {
+export default function Home(props) {
   return (
     <div className=" ">
       <Head>
@@ -67,7 +67,7 @@ const Home: NextPage = (props) => {
           </h2>
           <div className="flex space-x-3 overflow-x-scroll overflow-y-visible
            p-3 -ml-3">
-            {props.cardsData?.map((item) => (
+            {props?.cardsData?.map((item) => (
               <MediumCard key={item.img} img={item.img} title={item.title}/>
             ))}
           </div>
@@ -84,11 +84,9 @@ const Home: NextPage = (props) => {
 
       <Footer/>
     </div>
-  )
+  );
 }
 
 
-
-export default Home
 
 
